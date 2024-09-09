@@ -1,0 +1,16 @@
+site_name: Cryptocurrency Data Ingestion
+repo_url: https://github.com/alessandro2702/crypto-data-ingestion
+repo_name: alessandro2702/crypto-data-ingestion
+edit_uri: tree/main/docs
+
+theme: 
+  name: material
+  language: pt-BR
+  logo: assets/crypto-icon.png
+  favicon: assets/crypto-icon.png
+
+markdown_extensions:
+  - attr_list
+
+extra_css:
+  - stylesheets/extra.css
