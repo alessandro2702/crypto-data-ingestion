@@ -1,9 +1,21 @@
 [tool.poetry]
 name = "crypto-data-ingestion"
 version = "0.1.0"
-description = ""
+description = "The purpose of this library is facilitate the ingestion of data from the CoinGecko API and store it in cloud/self-hosted object storage."
 authors = ["alessandro2702 <alessandro.melo2702@gmail.com>"]
+requires-python = ">=3.11"
+classifiers = ["Programming Language :: Python :: 3.11",
+               "Topic :: Education",
+               "Environment :: Console",
+               "Natural Language :: English",
+               "Development Status :: 1 - Planning",
+               "Operating System :: OS Independent"]
 readme = "README.md"
+
+[project.urls]
+"Code" = "https://github.com/alessandro2702/crypto-data-ingestion"
+"Bug Tracker" = "https://github.com/alessandro2702/crypto-data-ingestion/issues"
+"Documentation" = "TBD"
 
 [tool.poetry.dependencies]
 python = "^3.11"
