@@ -58,9 +58,9 @@ class LocalStorage:
 
     def __init__(self):
         self.minio_client = Minio(
-            endpoint=config['minio']['endpoint'],
-            access_key=config['minio']['access_key'],
-            secret_key=config['minio']['secret_key'],
+            endpoint=config['storage_minio']['minio_endpoint'],
+            access_key=config['storage_minio']['minio_access_key'],
+            secret_key=config['storage_minio']['minio_secret_key'],
             secure=False,
         )
         logger.info('Minio client initialized.')
