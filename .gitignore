@@ -175,6 +175,8 @@ pyrightconfig.json
 
 # YAML
 config.yaml
+docker-compose.yml
+Dockerfile
 
 # End of https://www.toptal.com/developers/gitignore/api/python
 
