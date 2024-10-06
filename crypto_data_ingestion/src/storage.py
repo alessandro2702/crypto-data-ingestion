@@ -14,8 +14,7 @@ logging.basicConfig(
 logger = logging.getLogger(__name__)
 
 # Determine the absolute path to the config file
-base_dir = os.path.dirname(os.path.abspath(__file__))
-config_path = os.path.join(base_dir, 'config.yaml')
+config_path = os.path.join(os.getcwd(), 'config.yaml')
 
 # Load the configuration file
 with open(config_path, 'r') as file:
@@ -91,12 +90,12 @@ class LocalStorage:
         content_type: str,
     ) -> None:
         """
-        Saves raw data to a file in MinIO, creating the bucket if it does not exist.
+        Saves a raw data to specified bucket in MinIO Storage.
 
         Parameters:
             bucket_name (str): The name of the bucket where the data will be saved.
             object_name (str): The name of the object to be saved within the bucket (full path).
-            data (object): The data to be saved, converted to a format compatible with byte storage.
+            data (object): The data to be saved, converted to a format compatible with BinaryIO.
             length (int): The size of the data in bytes.
             content_type (str): The content type of the file (e.g., 'application/json').
 

@@ -4,8 +4,7 @@ import requests
 import yaml
 
 # Determine the absolute path to the config file
-base_dir = os.path.dirname(os.path.abspath(__file__))
-config_path = os.path.join(base_dir, 'config.yaml')
+config_path = os.path.join(os.getcwd(), 'config.yaml')
 
 # Load the configuration file
 with open(config_path, 'r') as file:
