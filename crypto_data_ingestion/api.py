@@ -10,8 +10,6 @@ config_path = os.path.join(base_dir, 'config.yaml')
 # Load the configuration file
 with open(config_path, 'r') as file:
     config = yaml.safe_load(file)
-    print(config)
-
 
 # API INTERFACE
 
