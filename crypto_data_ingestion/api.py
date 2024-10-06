@@ -1,7 +1,7 @@
 import os
+
 import requests
 import yaml
-
 
 # Determine the absolute path to the config file
 base_dir = os.path.dirname(os.path.abspath(__file__))
@@ -14,6 +14,7 @@ with open(config_path, 'r') as file:
 
 
 # API INTERFACE
+
 
 class CoinGeckoAPIClient:
     """
@@ -29,7 +30,7 @@ class CoinGeckoAPIClient:
     def __init__(self):
         self.base_url: str = config['coingecko']['api_url']
         if not self.base_url:
-            raise ValueError("Coingecko API URL not set in config.yaml")
+            raise ValueError('Coingecko API URL not set in config.yaml')
         self.headers: dict = {
             'Content-Type': 'application/json',
         }
