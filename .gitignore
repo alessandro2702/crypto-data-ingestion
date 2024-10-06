@@ -173,6 +173,11 @@ poetry.toml
 # LSP config files
 pyrightconfig.json
 
+# YAML
+config.yaml
+docker-compose.yml
+Dockerfile
+
 # End of https://www.toptal.com/developers/gitignore/api/python
 
 # Generated using ignr.py - github.com/Antrikshy/ignr.py
