@@ -3,7 +3,7 @@ import os
 from io import BytesIO
 from typing import Protocol
 
-import yaml
+from dotenv import load_dotenv
 from minio import Minio
 
 # Configure the logger with timestamp
@@ -14,13 +14,8 @@ logging.basicConfig(
 )
 logger = logging.getLogger(__name__)
 
-# Determine the absolute path to the config file
-config_path = os.path.join(os.getcwd(), 'config.yaml')
-
-# Load the configuration file
-with open(config_path, 'r') as file:
-    config = yaml.safe_load(file)
-
+#Load environment variables
+load_dotenv()
 
 class StorageInterface(Protocol):
     """
@@ -61,9 +56,9 @@ class LocalStorage:
 
     def __init__(self):
         self.minio_client = Minio(
-            endpoint=config['storage_minio']['minio_endpoint'],
-            access_key=config['storage_minio']['minio_access_key'],
-            secret_key=config['storage_minio']['minio_secret_key'],
+            endpoint=os.getenv('MINIO_ENDPOINT'),
+            access_key=os.getenv('MINIO_ACCESS_KEY'),
+            secret_key=os.getenv('MINIO_SECRET_KEY'),
             secure=False,
         )
         logger.info('Minio client initialized.')

@@ -3,9 +3,10 @@ import os
 
 import duckdb
 import pandas as pd
-import yaml
+
 from deltalake import DeltaTable, write_deltalake
-from .storage import LocalStorage, StorageInterface
+from dotenv import load_dotenv
+from storage import LocalStorage, StorageInterface
 
 # Configure the logger with timestamp
 logging.basicConfig(
@@ -15,12 +16,8 @@ logging.basicConfig(
 )
 logger = logging.getLogger(__name__)
 
-# Determine the absolute path to the config file
-config_path = os.path.join(os.getcwd(), 'config.yaml')
-
-# Load the configuration file
-with open(config_path, 'r') as file:
-    config = yaml.safe_load(file)
+#Load environment variables
+load_dotenv()
 
 
 class DataProcessing:

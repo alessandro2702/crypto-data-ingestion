@@ -1,16 +1,10 @@
 import os
 
 import requests
-import yaml
+from dotenv import load_dotenv
 
-# Determine the absolute path to the config file
-config_path = os.path.join(os.getcwd(), 'config.yaml')
-
-# Load the configuration file
-with open(config_path, 'r') as file:
-    config = yaml.safe_load(file)
-
-# API INTERFACE
+#Load environment variables
+load_dotenv()
 
 
 class CoinGeckoAPIClient:
@@ -25,7 +19,7 @@ class CoinGeckoAPIClient:
     """
 
     def __init__(self):
-        self.base_url: str = config['coingecko']['api_url']
+        self.base_url: str = os.getenv('COINGECKO_API_URL')
         if not self.base_url:
             raise ValueError('Coingecko API URL not set in config.yaml')
         self.headers: dict = {
