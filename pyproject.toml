@@ -15,7 +15,7 @@ readme = "README.md"
 [project.urls]
 "Code" = "https://github.com/alessandro2702/crypto-data-ingestion"
 "Bug Tracker" = "https://github.com/alessandro2702/crypto-data-ingestion/issues"
-"Documentation" = "TBD"
+"Documentation" = "https://cryto-data-ingestion.readthedocs.io/en/latest"
 
 [tool.poetry.dependencies]
 python = "^3.11"
