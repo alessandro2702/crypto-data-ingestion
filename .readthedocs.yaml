@@ -14,9 +14,8 @@ build:
     
   jobs:
     post_create_environment:
-      - pip install poetry
+      - pip install poetry mkdocs mkdocs-material mkdocstrings mkdocstrings-python
       - poetry config virtualenvs.create false
       
     post_install:
-      - pip uninstall mkdocs -y
       - poetry install --only doc
