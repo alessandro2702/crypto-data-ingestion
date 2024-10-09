@@ -19,4 +19,4 @@ plugins:
 - mkdocstrings:
     handlers:
         python:
-          paths: [crypto_data_ingestion/src]
+          paths: [crypto_data_ingestion]

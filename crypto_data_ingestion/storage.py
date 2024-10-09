@@ -1,5 +1,6 @@
 import logging
 import os
+from io import BytesIO
 from typing import Protocol
 
 import yaml
@@ -47,6 +48,9 @@ class StorageInterface(Protocol):
         length: int,
         content_type: str,
     ) -> None:
+        pass
+
+    def get_object_data(self, bucket_name: str, object_name: str) -> object:
         pass
 
 
@@ -113,3 +117,30 @@ class LocalStorage:
             logger.info(
                 f"Object '{object_name}' saved to bucket '{bucket_name}'."
             )
+
+    def get_object_data(self, bucket_name: str, object_name: str) -> BytesIO:
+        """
+        Retrieves an object from a specified bucket in MinIO Storage.
+
+        Parameters:
+            bucket_name (str): The name of the bucket where the object is stored.
+            object_name (str): The name of the object to be retrieved within the bucket.
+
+        Returns:
+            BytesIO: The object data as a file-like object.
+        """
+        found = self.minio_client.bucket_exists(bucket_name)
+        if not found:
+            logger.error(f"Bucket '{bucket_name}' does not exist.")
+            raise Exception('Bucket does not exist.')
+        else:
+            logger.info('Retrieving object from MinIO Storage.')
+            data = self.minio_client.get_object(bucket_name, object_name)
+            try:
+                # Read the data and convert it to a file-like object
+                file_data = data.read()
+                file_converted = BytesIO(file_data)
+                return file_converted
+            finally:
+                data.close()
+                data.release_conn()
