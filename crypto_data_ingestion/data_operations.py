@@ -6,7 +6,7 @@ import pandas as pd
 
 from deltalake import DeltaTable, write_deltalake
 from dotenv import load_dotenv
-from storage import LocalStorage, StorageInterface
+from .storage import LocalStorage, StorageInterface
 
 # Configure the logger with timestamp
 logging.basicConfig(
