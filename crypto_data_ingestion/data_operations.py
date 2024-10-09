@@ -5,7 +5,7 @@ import duckdb
 import pandas as pd
 import yaml
 from deltalake import DeltaTable, write_deltalake
-from storage import LocalStorage, StorageInterface
+from .storage import LocalStorage, StorageInterface
 
 # Configure the logger with timestamp
 logging.basicConfig(

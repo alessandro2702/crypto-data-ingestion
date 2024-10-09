@@ -1,6 +1,6 @@
 [tool.poetry]
 name = "crypto-data-ingestion"
-version = "0.2.4"
+version = "0.2.6"
 description = "The purpose of this library is facilitate the ingestion of data from the CoinGecko API and store it in cloud/self-hosted object storage."
 authors = ["alessandro2702 <alessandro.melo2702@gmail.com>"]
 license = "MIT"
